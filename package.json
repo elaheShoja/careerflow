@@ -1,0 +1,22 @@
+{
+  "name": "careerflow-root",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CareerFlow — Distributed AI Workflow Engine & Career Intelligence System",
+  "packageManager": "pnpm@10.5.2",
+  "engines": {
+    "node": ">=22.11.0",
+    "pnpm": ">=10.5.2"
+  },
+  "scripts": {
+    "build": "pnpm --filter \"./packages/**\" --filter \"./apps/**\" run build",
+    "typecheck": "pnpm --filter \"./packages/**\" --filter \"./apps/**\" run typecheck",
+    "format": "prettier --write \"**/*.{ts,tsx,md,json,yaml,sql}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,md,json,yaml,sql}\"",
+    "clean": "node -e \"const fs = require('fs'); ['node_modules', 'dist', '.turbo', 'apps/web/dist', 'packages/contracts/dist'].forEach(p => fs.rmSync(p, { recursive: true, force: true }))\""
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.3"
+  }
+}

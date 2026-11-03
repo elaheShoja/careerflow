@@ -1,0 +1,35 @@
+
+# Node & Monorepo Dependencies
+node_modules/
+.pnpm-store/
+
+# Build & Compilation Outputs
+dist/
+build/
+.tsbuildinfo
+
+# Strict Credential Segregation (Secrets must never enter git)
+.env
+.env.*
+!.env.example
+!.env.server.example
+*.pem
+*.key
+
+# Supabase Local Engine Artifacts
+supabase/.branches/
+supabase/.temp/
+
+# OS & Workspace Files
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+
+# Testing & Logs
+coverage/
+*.log
+npm-debug.log*
+pnpm-debug.log*
