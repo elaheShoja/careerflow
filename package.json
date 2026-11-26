@@ -11,8 +11,8 @@
   "scripts": {
     "build": "pnpm --filter \"./packages/**\" --filter \"./apps/**\" run build",
     "typecheck": "pnpm --filter \"./packages/**\" --filter \"./apps/**\" run typecheck",
-    "format": "prettier --write \"**/*.{ts,tsx,md,json,yaml,sql}\"",
-    "format:check": "prettier --check \"**/*.{ts,tsx,md,json,yaml,sql}\"",
+    "format": "prettier --write \"**/*.{ts,tsx,md,json,yaml}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,md,json,yaml}\"",
     "clean": "node -e \"const fs = require('fs'); ['node_modules', 'dist', '.turbo', 'apps/web/dist', 'packages/contracts/dist'].forEach(p => fs.rmSync(p, { recursive: true, force: true }))\""
   },
   "devDependencies": {

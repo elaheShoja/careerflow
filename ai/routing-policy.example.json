@@ -1,0 +1,111 @@
+{
+  "$schema": "./routing-policy.schema.json",
+  "version": "1.0.0",
+  "governance": {
+    "adrReference": "ADR-0001",
+    "enforceStructuredJsonOutput": true,
+    "rejectRawMarkdownFences": true,
+    "allowProviderFallback": true
+  },
+  "providers": {
+    "gemini": {
+      "enabled": true,
+      "apiKeyEnv": "GEMINI_API_KEY",
+      "defaultModelEnv": "GEMINI_DEFAULT_MODEL",
+      "fallbackModel": "gemini-2.5-pro",
+      "supportsStrictJsonSchema": true
+    },
+    "anthropic": {
+      "enabled": true,
+      "apiKeyEnv": "ANTHROPIC_API_KEY",
+      "defaultModelEnv": "ANTHROPIC_DEFAULT_MODEL",
+      "fallbackModel": "claude-sonnet-4-5",
+      "supportsStrictJsonSchema": true
+    },
+    "openai": {
+      "enabled": true,
+      "apiKeyEnv": "OPENAI_API_KEY",
+      "defaultModelEnv": "OPENAI_DEFAULT_MODEL",
+      "fallbackModel": "gpt-4.1",
+      "supportsStrictJsonSchema": true
+    }
+  },
+  "capabilities": {
+    "structured-extraction": {
+      "description": "Deterministic parsing of sources, claims, and entity records into strict JSON contracts.",
+      "primaryProvider": "gemini",
+      "fallbackProvider": "openai",
+      "temperature": 0.0
+    },
+    "epistemic-audit": {
+      "description": "Contradiction detection, provenance verification, and M16 independent audit checks.",
+      "primaryProvider": "anthropic",
+      "fallbackProvider": "gemini",
+      "temperature": 0.0
+    },
+    "synthesis-drafting": {
+      "description": "Grounded synthesis of canonical PSOT statements, Master Resume items, and tailored artifacts.",
+      "primaryProvider": "openai",
+      "fallbackProvider": "anthropic",
+      "temperature": 0.2
+    },
+    "classification": {
+      "description": "Fast categorization, gap triage, and status classification.",
+      "primaryProvider": "gemini",
+      "fallbackProvider": "openai",
+      "temperature": 0.0
+    }
+  },
+  "taskBindings": {
+    "P01.EC-01": {
+      "name": "Source Registration & Extraction (M02)",
+      "capability": "structured-extraction",
+      "kernel": "ai/kernels/pkmrs-kernel-v1.0.md"
+    },
+    "P01.EC-02": {
+      "name": "Normalization & Entity Comparison (M03, M04)",
+      "capability": "structured-extraction",
+      "kernel": "ai/kernels/pkmrs-kernel-v1.0.md"
+    },
+    "P01.EC-03": {
+      "name": "Claim & Evidence Construction (M05)",
+      "capability": "structured-extraction",
+      "kernel": "ai/kernels/pkmrs-kernel-v1.0.md"
+    },
+    "P01.EC-04": {
+      "name": "Knowledge Reconstruction & Gap Detection (M06, M07)",
+      "capability": "epistemic-audit",
+      "kernel": "ai/kernels/pkmrs-kernel-v1.0.md"
+    },
+    "P01.EC-05": {
+      "name": "Adaptive Interview Interaction (M08)",
+      "capability": "synthesis-drafting",
+      "kernel": "ai/kernels/pkmrs-kernel-v1.0.md"
+    },
+    "P01.EC-06": {
+      "name": "Verification, Conflict & Canonicalization (M09, M10, M11)",
+      "capability": "epistemic-audit",
+      "kernel": "ai/kernels/pkmrs-kernel-v1.0.md"
+    },
+    "P01.EC-07": {
+      "name": "Master Resume Derivation & Independent Audit (M15, M16)",
+      "capability": "epistemic-audit",
+      "kernel": "ai/kernels/pkmrs-kernel-v1.0.md"
+    },
+    "P02.DISCOVERY": {
+      "name": "Target Company Discovery & Alignment Scoring",
+      "capability": "classification",
+      "kernel": null
+    },
+    "P03.INTELLIGENCE": {
+      "name": "Company & People Intelligence Synthesis",
+      "capability": "structured-extraction",
+      "kernel": null
+    },
+    "P04.TAILORING": {
+      "name": "Job-Specific Resume & Cover Letter Derivation",
+      "capability": "synthesis-drafting",
+      "kernel": null
+    }
+  }
+}
