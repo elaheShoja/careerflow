@@ -15,16 +15,16 @@ The system architecture and specifications are formally frozen, including:
 
 ## Implementation Status
 
-The codebase is currently transitioning from **Milestone 1.2A (Baseline Specs & Multi-Provider AI Setup)** to **Milestone 1.2B (`@careerflow/contracts`)**.
+The codebase is currently executing **Milestone 1.3 (Supabase Schema, Seed Data & V1 Workflow Assets)**.
 
-| Component                                                   | Status              |
-| ----------------------------------------------------------- | ------------------- |
-| Monorepo & Workspace Setup (Milestone 1.1)                  | Completed           |
-| Baseline Specs, AI Kernel & Routing Policy (Milestone 1.2A) | Completed           |
-| Contracts Package (`@careerflow/contracts`, Milestone 1.2B) | Next Up             |
-| Web Application (`apps/web`)                                | Shell Ready         |
-| Supabase Integration (`supabase/`)                          | Config Ready        |
-| Workflow Orchestration (`workflows/`)                       | Ready for Migration |
+| Component                                                   | Status      |
+| ----------------------------------------------------------- | ----------- |
+| Monorepo & Workspace Setup (Milestone 1.1)                  | Completed   |
+| Baseline Specs, AI Kernel & Routing Policy (Milestone 1.2A) | Completed   |
+| Contracts Package (`@careerflow/contracts`, Milestone 1.2B) | Completed   |
+| Supabase Schema & Seed (`supabase/`, Milestone 1.3)         | Completed   |
+| Workflow Orchestration & M08 Bridge (`workflows/`, `apps/`) | Next Up     |
+| Web Application (`apps/web`)                                | Shell Ready |
 
 ## Technology Stack
 
